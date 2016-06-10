@@ -1,0 +1,4 @@
+routes:
+  get:
+    /project/{id}: ProjectController:index
+    /: HomeController:index
