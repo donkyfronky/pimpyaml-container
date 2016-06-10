@@ -1,0 +1,11 @@
+imports:
+    - resource: dependency.yml
+    - resource: routes.yml
+#general parameters
+customvalues:
+    dummy: 1
+parameters:
+    cache_folder: 'cache/'
+    memcached_servers:
+      servers:
+        - ['127.0.0.1','11211']
