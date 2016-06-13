@@ -40,8 +40,38 @@ or you can define with yaml <code>config.yml</code> file with symfony like synta
 
 <div class="highlight highlight-text-html-php"><pre><span class="pl-s1">  <span class="pl-smi">$conf_file</span> <span class="pl-k">=</span> <span class="pl-c1">__DIR__</span><span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">'</span>/config.yml<span class="pl-pds">'</span></span>;</span>
 <span class="pl-s1">  <span class="pl-smi">$config</span> <span class="pl-k">=</span> <span class="pl-c1">\SwissArmy\</span><span class="pl-c1">ConfigHandler</span><span class="pl-k">::</span>loadConf(<span class="pl-smi">$conf_file</span>);</span>
-<span class="pl-s1">  <span class="pl-smi">$container</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\SwissArmy\</span><span class="pl-c1">SimpleContainer</span>(<span class="pl-smi">$config</span>);</span>
-<span class="pl-s1"><span class="pl-s"><span class="pl-pds">`</span></span></span></pre></div>
+<span class="pl-s1">  <span class="pl-smi">$container</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\SwissArmy\</span><span class="pl-c1">SimpleContainer</span>(<span class="pl-smi">$config</span>);</span></pre></div>
+
+<p><code>ConfigHandler</code> support several <code>imports -&gt; resource</code> if you want to separate domain of configuration as you can see below</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">imports:</span></span>
+    <span class="pl-s">- <span class="pl-ent">resource:</span> <span class="pl-s">dependency.yml</span></span>
+    <span class="pl-s">- <span class="pl-ent">resource:</span> <span class="pl-s">routes.yml</span></span>
+<span class="pl-s"><span class="pl-ent">customvalues:</span></span>
+    <span class="pl-c1"><span class="pl-ent">custom1:</span> 1    </span></pre></div>
+
+<h3>
+<a id="the-services" class="anchor" href="#the-services" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Services</h3>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">services:</span></span>
+    <span class="pl-s"><span class="pl-ent">zone:</span></span>
+        <span class="pl-s"><span class="pl-ent">class:</span> <span class="pl-s">\DateTimeZone</span></span>
+        <span class="pl-s"><span class="pl-ent">arguments:</span> <span class="pl-s">['America/Adak']</span></span>
+    <span class="pl-s"><span class="pl-ent">time:</span></span>
+        <span class="pl-s"><span class="pl-ent">class:</span> <span class="pl-s">\DateTime</span></span>
+        <span class="pl-s"><span class="pl-ent">arguments:</span> <span class="pl-s">['2016-01-01','@zone']</span></span>
+    time2
+        <span class="pl-s"><span class="pl-ent">class:</span> <span class="pl-s">\DateTime</span></span>
+        <span class="pl-s"><span class="pl-ent">calls:</span></span>
+            <span class="pl-s">- <span class="pl-s">[setTimezone , ['@zone']]</span></span>
+    dummy
+        <span class="pl-s"><span class="pl-ent">class:</span> <span class="pl-s">\yourclass</span></span>
+        <span class="pl-s"><span class="pl-ent">arguments:</span> <span class="pl-s">['@container']</span></span>
+    dummy2
+        <span class="pl-s"><span class="pl-ent">class:</span> <span class="pl-s">\yourclass</span></span>
+        <span class="pl-s"><span class="pl-ent">arguments:</span> <span class="pl-s">['%custom1%']        </span></span></pre></div>
+
+<p>At moment the only markdown support, as you can see, is <code>@object</code>,<code>@container</code>(is a special word to pass the container),<code>%yourvariable%</code></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/donkyfronky/pimpyaml-container">Pimpyaml-container</a> is maintained by <a href="https://github.com/donkyfronky">donkyfronky</a>.</span>
