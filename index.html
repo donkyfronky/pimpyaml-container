@@ -38,11 +38,10 @@ or you can define with yaml <code>config.yml</code> file with symfony like synta
 <h3>
 <a id="loading-config-file" class="anchor" href="#loading-config-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Loading config file</h3>
 
-<p><code>
-  $conf_file = __DIR__.'/config.yml';
-  $config = \SwissArmy\ConfigHandler::loadConf($conf_file);
-  $container = new \SwissArmy\SimpleContainer($config);
-</code></p>
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1">  <span class="pl-smi">$conf_file</span> <span class="pl-k">=</span> <span class="pl-c1">__DIR__</span><span class="pl-k">.</span><span class="pl-s"><span class="pl-pds">'</span>/config.yml<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">  <span class="pl-smi">$config</span> <span class="pl-k">=</span> <span class="pl-c1">\SwissArmy\</span><span class="pl-c1">ConfigHandler</span><span class="pl-k">::</span>loadConf(<span class="pl-smi">$conf_file</span>);</span>
+<span class="pl-s1">  <span class="pl-smi">$container</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-c1">\SwissArmy\</span><span class="pl-c1">SimpleContainer</span>(<span class="pl-smi">$config</span>);</span>
+<span class="pl-s1"><span class="pl-s"><span class="pl-pds">`</span></span></span></pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/donkyfronky/pimpyaml-container">Pimpyaml-container</a> is maintained by <a href="https://github.com/donkyfronky">donkyfronky</a>.</span>
