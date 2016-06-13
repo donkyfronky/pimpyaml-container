@@ -1,6 +1,6 @@
 {
   "name": "Pimpyaml-container",
   "tagline": "",
-  "body": "Pimpyaml is a simple configuration package for Pimple container. It implements [ContainerInterface](https://github.com/container-interop/container-interop), so you can switch easly with another [container](https://github.com/container-interop/container-interop#projects-implementing-containerinterface)",
+  "body": "Pimpyaml is a simple configuration package for Pimple container. It implements [ContainerInterface](https://github.com/container-interop/container-interop), so you can switch easly with another [container](https://github.com/container-interop/container-interop#projects-implementing-containerinterface)\r\n\r\n#Install\r\n`composer require mascherucci/pimpyaml-container`\r\n\r\n#Usage\r\nYou can obviously define the service in normal [way](https://github.com/silexphp/Pimple#defining-services)\r\nor you can define with yaml `config.yml` file with symfony like syntax",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
