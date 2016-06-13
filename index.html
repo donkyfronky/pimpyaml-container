@@ -32,6 +32,18 @@
 <p>You can obviously define the service in normal <a href="https://github.com/silexphp/Pimple#defining-services">way</a>
 or you can define with yaml <code>config.yml</code> file with symfony like syntax</p>
 
+<h2>
+<a id="defining-services" class="anchor" href="#defining-services" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Defining Services</h2>
+
+<h3>
+<a id="loading-config-file" class="anchor" href="#loading-config-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Loading config file</h3>
+
+<p><code>
+$conf_file = __DIR__.'/config.yml';
+$config = \SwissArmy\ConfigHandler::loadConf($conf_file);
+$container = new \SwissArmy\SimpleContainer($config);
+</code></p>
+
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/donkyfronky/pimpyaml-container">Pimpyaml-container</a> is maintained by <a href="https://github.com/donkyfronky">donkyfronky</a>.</span>
 
