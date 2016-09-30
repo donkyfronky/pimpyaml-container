@@ -5,4 +5,3 @@ services:
     time:
         class: \DateTime
         arguments: ['2016-01-01','@zone']
-        #arguments: ['/data/www/SmartEditorPo/web/',{'cache': false}]
