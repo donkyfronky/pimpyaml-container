@@ -1,0 +1,14 @@
+parameters:
+    mailerenabled: false
+    hosttoping: '192.168.1.1'
+    mysql:
+      dsn:  "mysql:host='mysql';dbname=torrent_manager"
+      user: root
+      password: root
+
+services:
+    Database:
+        class: PDO
+        arguments: ["mysql:host=mysql;dbname=torrent_manager","root","root"]
+        calls:
+            - [setAttribute, [3, 2]]
