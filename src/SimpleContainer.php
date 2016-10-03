@@ -62,6 +62,9 @@ class SimpleContainer extends Container implements ContainerInterface
   {
 
     switch ($parameter) {
+      case is_array($parameter):
+        return (array)$parameter;
+        break;
       case (strcmp($parameter,'true')===0 || strcmp($parameter,'false')===0):
         return ($parameter === 'true');
         break;
@@ -79,9 +82,6 @@ class SimpleContainer extends Container implements ContainerInterface
         }
       case is_string($parameter):
         return (string)$parameter;
-        break;
-      case (array)$parameter:
-        return boolval($parameter);
         break;
     }
 
