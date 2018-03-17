@@ -3,12 +3,12 @@ Pimpyaml is a simple configuration package for Pimple container. It implements [
 #Install
 `composer require mascherucci/pimpyaml-container`
 
-#Usage
+# Usage
 You can obviously define the service in normal [way](https://github.com/silexphp/Pimple#defining-services)
 or you can define with yaml `config.yml` file with symfony like syntax
 
-##Defining Services
-###Loading config file
+## Defining Services
+### Loading config file
 ```php
   $conf_file = __DIR__.'/config.yml';
   $config = \SwissArmy\ConfigHandler::loadConf($conf_file);
@@ -24,7 +24,7 @@ imports:
 customvalues:
     custom1: 1    
 ```
-###The Services
+### The Services
 ```yaml
 services:
     zone:
